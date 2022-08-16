@@ -1,0 +1,45 @@
+<div class="header"></div>
+
+<div class="menu-content">
+  <section>
+    <ion-title class="categorias-title">Categorias</ion-title>
+
+    <div style="display: flex; justify-content: space-around">
+      <app-categorias
+        *ngFor="let categoria of categorias"
+        [srcImage]="categoria.foto"
+        [selection]="categoria.categoria"
+      ></app-categorias>
+    </div>
+  </section>
+
+  <div class="line"></div>
+
+  <ion-title class="categorias-title">Eventos</ion-title>
+
+  <section
+    class="scrolling-wrapper"
+    #element
+    (mousedown)="startDragging($event, false, element)"
+    (mouseup)="stopDragging($event, false)"
+    (mouseleave)="stopDragging($event, false)"
+    (mousemove)="moveEvent($event, element)"
+  >
+    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+
+    <small class="seemore" [ngStyle]="{ 'margin-top.px': clientHeight }">see all >></small>
+  </section>
+
+
+  <div class="line" style="margin-top: 1rem;"></div>
+
+  <ion-title class="categorias-title">Próximos partidos</ion-title>
+
+  <section>
+    <app-partidos></app-partidos>
+  </section>
+</div>

@@ -1,0 +1,12 @@
+{
+  "global": {},
+  "main": {
+    "categorias": "categorias",
+    "categoriasC": {
+      "partidos": "partidos",
+      "equipos": "equipos",
+      "club": "club",
+      "eventos": "eventos"
+    }
+  }
+}

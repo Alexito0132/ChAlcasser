@@ -1,0 +1,8 @@
+<div class="item" style="width: 90%;" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
+<div class="ribbon">
+  <p class="date"> <span class="date date--dark"> {{day}} </span> <span> {{month | uppercase}} </span></p>
+  <p class="date"> <span class="date date__hour date--dark">{{time}} </span></p>
+</div>
+</div>
+
+<div class="title"><p style="margin: 0;">{{title | titlecase}}</p></div>

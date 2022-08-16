@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  width: 90%;
+  height: 150px;
+  border-radius: 20px;
+  margin-left: 1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ribbon {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+  background-color: rgba(206, 87, 195, 0.85);
+  width: 50px;
+  height: 50px;
+  margin-left: 10%;
+
+  transform: rotateX(-4deg) rotateY(10deg) rotateZ(0deg);
+  transform-origin: 50% 50% 0px;
+}
+
+.date {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: AntonioBold;
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.85;
+
+  &--dark {
+    color: rgba(77, 75, 74, 1);
+  }
+
+  &__hour{
+    font-size: 12px;
+    opacity: 1;
+  }
+}
+
+.title{
+  font-family: PoppinsSemi;
+  font-size: 12px;
+  margin-left: 1rem;
+}

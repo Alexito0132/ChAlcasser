@@ -1,0 +1,7 @@
+{
+	"appId": "com.alcasser.app",
+	"appName": "CH Alcasser",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"plugins": {}
+}

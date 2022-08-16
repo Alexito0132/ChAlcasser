@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  width: 70%;
+  margin: 1rem;
+  border-radius: 9px;
+  color: black;
+  text-align: center;
+}
+
+.header {
+  background-color: rgb(255, 2, 1);
+  border: 0.5px solid white;
+  border-radius: 9px 9px 0 0;
+  font-family: PoppinsBold;
+  color: white;
+  border-bottom: none;
+  letter-spacing: 1px;
+}
+
+.body {
+  background-color: white;
+  display: flex;
+  border-radius: 0 0 9px 9px;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+  border: 1px solid rgb(112, 112, 112);
+  border-top: none;
+}
+
+.img-container {
+  display: flex;
+}
+
+.month {
+  font-family: AntonioBold;
+  color: rgb(112, 112, 112);
+  font-size: 20px;
+}
+
+.day {
+  font-family: AntonioBold;
+  color: rgb(75, 75, 74);
+  font-size: 20px;
+}
+
+.hour {
+  font-family: PoppinsSemi;
+  color: rgb(75, 75, 74);
+  font-size: 16px;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: rgb(112, 112, 112);
+  margin: auto 0.7rem auto 0.7rem;
+  height: 4.5rem;
+}
+
+ion-img {
+  width: 40px;
+}
