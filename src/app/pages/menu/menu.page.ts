@@ -1,4 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  NativePageTransitions
+} from '@awesome-cordova-plugins/native-page-transitions/ngx';
+import { AnimationController, NavController } from '@ionic/angular';
 
 export interface Categoria {
   categoria: string;
@@ -11,7 +15,7 @@ export interface Categoria {
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  @ViewChild('element') element: ElementRef<HTMLElement>;
+  status = false;
   categorias: Categoria[] = [
     {
       categoria: 'Partidos',
@@ -37,13 +41,11 @@ export class MenuPage implements OnInit {
   date = new Date();
   slider = document.querySelector<HTMLElement>('.parent');
 
-  constructor() {}
-
-  get clientHeight() {
-    console.log(this.element?.nativeElement?.clientHeight);
-
-    return this.element?.nativeElement?.clientHeight;
-  }
+  constructor(
+    private navCtrl: NavController,
+    private animationCtrl: AnimationController,
+    private nativePageTransitions: NativePageTransitions
+  ) {}
 
   ngOnInit() {}
 
@@ -63,5 +65,19 @@ export class MenuPage implements OnInit {
     const x = e.pageX - el.offsetLeft;
     const scroll = x - this.startX;
     el.scrollLeft = this.scrollLeft - scroll;
+  }
+
+  zoom(element: HTMLElement, route: string) {
+    const zoomAnimation = this.animationCtrl
+      .create('zoom-animation')
+      .addElement(element)
+      .keyframes([{ offset: 1, transform: 'scale:(.5) ' }])
+      .duration(500)
+      .onFinish(() => {
+        this.navCtrl.navigateForward([route]);
+        zoomAnimation.destroy();
+      });
+
+    zoomAnimation.play();
   }
 }

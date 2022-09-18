@@ -3,12 +3,14 @@
 }
 
 .item {
-  width: 90%;
-  height: 150px;
+  max-width: 90%;
+  height: 8rem;
+  max-height: 8rem;
   border-radius: 20px;
   margin-left: 1rem;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% auto;
+  background-position: center top;
 }
 
 .ribbon {
@@ -17,7 +19,7 @@
   background-color: rgba(206, 87, 195, 0.85);
   width: 50px;
   height: 50px;
-  margin-left: 10%;
+  margin-left: 2rem;
 
   transform: rotateX(-4deg) rotateY(10deg) rotateZ(0deg);
   transform-origin: 50% 50% 0px;
@@ -45,4 +47,5 @@
   font-family: PoppinsSemi;
   font-size: 12px;
   margin-left: 1rem;
+  margin-top: 2px;
 }

@@ -8,18 +8,21 @@
   background-color: white;
   height: 60px;
   width: 100%;
-
   border-bottom: 2px solid rgb(90, 90, 90);
 }
 
 .menu-content {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+  --background: linear-gradient(
     407.1deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(239, 14, 14, 1) 100%
   );
+
+  /*
+  linear-gradient(    407.1deg,    rgba(0, 0, 0, 1) 0%,   rgb(251 238 120)  )
+  */
 }
 
 .categorias-title {
@@ -57,16 +60,38 @@
 
   .evento {
     flex: 0 0 auto;
-    width: 100%;
+    width: 90%;
+  }
+
+  @media (min-width: 961px) {
+    .evento {
+      flex: 0 0 auto;
+      width: calc(100% / 3);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .evento {
+      flex: 0 0 auto;
+      width: calc(100% / 5);
+    }
   }
 }
 
+.categorias {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  margin: 0 1rem 0 1rem;
+}
+
 .seemore {
-  position: fixed;
+  position: absolute;
   right: 0;
   margin-right: 1rem;
   font-family: PoppinsMedium;
   font-size: 10px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-decoration: underline;
 }

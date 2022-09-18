@@ -1,21 +1,26 @@
-<div class="header"></div>
+<ion-content class="menu-content">
+  <ion-header>
+    <ion-toolbar mode="ios">
+      <ion-title>CH Alcasser</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<div class="menu-content">
   <section>
-    <ion-title class="categorias-title">Categorias</ion-title>
+    <h5 class="categorias-title">Categorias</h5>
 
-    <div style="display: flex; justify-content: space-around">
+    <div class="categorias">
       <app-categorias
         *ngFor="let categoria of categorias"
         [srcImage]="categoria.foto"
         [selection]="categoria.categoria"
+        style="width: calc(80% / 4)"
       ></app-categorias>
     </div>
   </section>
 
   <div class="line"></div>
 
-  <ion-title class="categorias-title">Eventos</ion-title>
+  <h5 class="categorias-title">Eventos</h5>
 
   <section
     class="scrolling-wrapper"
@@ -25,21 +30,80 @@
     (mouseleave)="stopDragging($event, false)"
     (mousemove)="moveEvent($event, element)"
   >
-    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
-    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
-    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
-    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
-    <app-eventos class="evento" backgroundImage="../../../assets/images/categorias_image/INICI-50.png" [eventDate]="date" title="Nueva temporada"></app-eventos>
+    <app-eventos
+      #evento
+      (click)="status=!status"
+      class="evento"
+      backgroundImage="../../../assets/images/categorias_image/INICI-50.png"
+      [eventDate]="date"
+      title="Nueva temporada"
+    ></app-eventos>
+    <app-eventos
+      class="evento"
+      backgroundImage="../../../assets/images/categorias_image/INICI-50.png"
+      [eventDate]="date"
+      title="Nueva temporada"
+    ></app-eventos>
+    <app-eventos
+      class="evento"
+      backgroundImage="../../../assets/images/categorias_image/INICI-50.png"
+      [eventDate]="date"
+      title="Nueva temporada"
+    ></app-eventos>
+    <app-eventos
+      class="evento"
+      backgroundImage="../../../assets/images/categorias_image/INICI-50.png"
+      [eventDate]="date"
+      title="Nueva temporada"
+    ></app-eventos>
+    <app-eventos
+      class="evento"
+      backgroundImage="../../../assets/images/categorias_image/INICI-50.png"
+      [eventDate]="date"
+      title="Nueva temporada"
+    ></app-eventos>
 
-    <small class="seemore" [ngStyle]="{ 'margin-top.px': clientHeight }">see all >></small>
+
   </section>
 
+  <small class="seemore">see all >></small>
 
-  <div class="line" style="margin-top: 1rem;"></div>
+  <div class="line" style="margin-top: 1rem"></div>
 
-  <ion-title class="categorias-title">Próximos partidos</ion-title>
+  <h5 class="categorias-title">Próximos partidos</h5>
 
-  <section>
+  <section
+    class="scrolling-wrapper"
+    #partidos
+    (mousedown)="startDragging($event, false, partidos)"
+    (mouseup)="stopDragging($event, false)"
+    (mouseleave)="stopDragging($event, false)"
+    (mousemove)="moveEvent($event, partidos)"
+  >
     <app-partidos></app-partidos>
+    <app-partidos></app-partidos>
+    <app-partidos></app-partidos>
+    <app-partidos></app-partidos>
+    <app-partidos></app-partidos>
+
   </section>
-</div>
+
+  <small class="seemore">see all >></small>
+
+  <div class="line"></div>
+
+  <h5 class="categorias-title">Últimos resultados</h5>
+
+  <section #resultados style="display: flex; flex-direction: column">
+    <app-resultados></app-resultados>
+    <app-resultados></app-resultados>
+    <app-resultados></app-resultados>
+    <app-resultados></app-resultados>
+
+  </section>
+  <small class="seemore">see all >></small>
+
+  <div class="line"></div>
+
+  <h5 class="categorias-title">Patrocinadores oficiales</h5>
+</ion-content>

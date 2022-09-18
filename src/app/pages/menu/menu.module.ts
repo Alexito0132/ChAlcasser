@@ -11,6 +11,8 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { TranslateModule } from '@ngx-translate/core';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { PartidosComponent } from './components/partidos/partidos.component';
+import { ResultadosComponent } from './components/resultados/resultados.component';
+import { NativePageTransitions } from '@awesome-cordova-plugins/native-page-transitions/ngx';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { PartidosComponent } from './components/partidos/partidos.component';
     MenuPageRoutingModule,
     TranslateModule,
   ],
-  declarations: [MenuPage, CategoriasComponent, EventosComponent, PartidosComponent],
+  declarations: [MenuPage, CategoriasComponent, EventosComponent, PartidosComponent, ResultadosComponent],
+  providers: [NativePageTransitions]
 })
 export class MenuPageModule {}

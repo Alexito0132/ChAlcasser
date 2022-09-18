@@ -10,6 +10,7 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
+@import '~animate.css/animate.min.css';
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -36,6 +37,10 @@
 @font-face {
   font-family: "PoppinsMedium"; //This is what we are going to call
   src: url("./assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "PoppinsLight"; //This is what we are going to call
+  src: url("./assets/fonts/Poppins/Poppins-Light.ttf");
 }
 @font-face {
   font-family: "AntonioBold"; //This is what we are going to call
