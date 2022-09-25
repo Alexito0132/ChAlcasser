@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  NativePageTransitions
-} from '@awesome-cordova-plugins/native-page-transitions/ngx';
+import { NativePageTransitions } from '@awesome-cordova-plugins/native-page-transitions/ngx';
 import { AnimationController, NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 export interface Categoria {
-  categoria: string;
+  categoria: Observable<any>;
   foto: string;
 }
 
@@ -18,19 +18,19 @@ export class MenuPage implements OnInit {
   status = false;
   categorias: Categoria[] = [
     {
-      categoria: 'Partidos',
+      categoria: this.translateService.get('main.categorias.partidos'),
       foto: '../../../assets/images/categorias_image/final-cadet-44.png',
     },
     {
-      categoria: 'Equipo',
+      categoria: this.translateService.get('main.categorias.equipos'),
       foto: '../../../assets/images/categorias_image/cartell-escola.png',
     },
     {
-      categoria: 'Club',
+      categoria: this.translateService.get('main.categorias.club'),
       foto: '../../../assets/images/categorias_image/Sin_ttulo.png',
     },
     {
-      categoria: 'Eventos',
+      categoria: this.translateService.get('main.categorias.eventos'),
       foto: '../../../assets/images/categorias_image/Sin_ttulo_.png',
     },
   ];
@@ -43,8 +43,7 @@ export class MenuPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private animationCtrl: AnimationController,
-    private nativePageTransitions: NativePageTransitions
+    private translateService: TranslateService
   ) {}
 
   ngOnInit() {}
@@ -67,17 +66,7 @@ export class MenuPage implements OnInit {
     el.scrollLeft = this.scrollLeft - scroll;
   }
 
-  zoom(element: HTMLElement, route: string) {
-    const zoomAnimation = this.animationCtrl
-      .create('zoom-animation')
-      .addElement(element)
-      .keyframes([{ offset: 1, transform: 'scale:(.5) ' }])
-      .duration(500)
-      .onFinish(() => {
-        this.navCtrl.navigateForward([route]);
-        zoomAnimation.destroy();
-      });
-
-    zoomAnimation.play();
+  navigate(route: string) {
+    this.navCtrl.navigateForward([route]);
   }
 }

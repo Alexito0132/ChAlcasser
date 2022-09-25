@@ -12,7 +12,7 @@
       <app-categorias
         *ngFor="let categoria of categorias"
         [srcImage]="categoria.foto"
-        [selection]="categoria.categoria"
+        [selection]="categoria.categoria | async | titlecase"
         style="width: calc(80% / 4)"
       ></app-categorias>
     </div>
@@ -62,8 +62,6 @@
       [eventDate]="date"
       title="Nueva temporada"
     ></app-eventos>
-
-
   </section>
 
   <small class="seemore">see all >></small>
@@ -85,7 +83,6 @@
     <app-partidos></app-partidos>
     <app-partidos></app-partidos>
     <app-partidos></app-partidos>
-
   </section>
 
   <small class="seemore">see all >></small>
@@ -99,7 +96,6 @@
     <app-resultados></app-resultados>
     <app-resultados></app-resultados>
     <app-resultados></app-resultados>
-
   </section>
   <small class="seemore">see all >></small>
 

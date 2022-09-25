@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calendario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+        <div>
+          <button (click)="onPreviousMonth()">Previous</button>
+          <span>
+            {{ getMonthName(monthNumber) }} &nbsp; {{ year }}
+          </span>
+          <button (click)="onNextMonth()">Next</button>
+        </div>
+
+        <br />
+
+        <div class="calendar">
+          <div class="daysWeek">
+            <p class="dayWeek" *ngFor="let day of weekDaysName">{{day | slice:0:3 | uppercase}}</p>
+          </div>
+
+
+            <div class="daysWeek" *ngFor="let item of rows | enumerate">
+              <div (click)="addClass($event)" class="day" [id]="day.number" *ngFor="let day of groupMonthDays[item]">{{day.number | addZeroDate}}</div>
+            </div>
+
+        </div>
+
+</ion-content>

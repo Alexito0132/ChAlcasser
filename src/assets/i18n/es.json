@@ -1,8 +1,8 @@
 {
   "global": {},
   "main": {
-    "categorias": "categorias",
-    "categoriasC": {
+    "categorias": {
+      "categorias": "categorias",
       "partidos": "partidos",
       "equipos": "equipos",
       "club": "club",

@@ -1,0 +1,24 @@
+.daysWeek {
+  display: grid;
+  font-family: PoppinsSemi;
+  border-bottom: 2px solid;
+  width: calc(100% - 20px);
+  margin: auto;
+  font-size: 14px;
+  grid-template-columns: repeat(7, 1fr);
+
+  .dayWeek {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .day {
+    text-align: center;
+    padding: 0.6rem 0.6rem;
+  }
+}
+
+.selected {
+  background-color: rgb(239, 14, 14, 1) !important;
+  clip-path: circle(30% at 50% 50%);
+}
