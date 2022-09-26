@@ -5,15 +5,13 @@
 </ion-header>
 
 <ion-content>
-        <div>
-          <button (click)="onPreviousMonth()">Previous</button>
-          <span>
-            {{ getMonthName(monthNumber) }} &nbsp; {{ year }}
+        <div class="date">
+          <ion-button fill="clear" (click)="onPreviousMonth()"><ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon></ion-button>
+          <span class="month">
+            {{ getMonthName(monthNumber) | async | titlecase }} &nbsp; {{ year }}
           </span>
-          <button (click)="onNextMonth()">Next</button>
+          <ion-button fill="clear" (click)="onNextMonth()"><ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon></ion-button>
         </div>
-
-        <br />
 
         <div class="calendar">
           <div class="daysWeek">
@@ -21,8 +19,15 @@
           </div>
 
 
-            <div class="daysWeek" *ngFor="let item of rows | enumerate">
-              <div (click)="addClass($event)" class="day" [id]="day.number" *ngFor="let day of groupMonthDays[item]">{{day.number | addZeroDate}}</div>
+            <div class="daysWeek bb-0" *ngFor="let item of rows | enumerate">
+              <div class="day_container" (click)="addClass(day)" [id]="day.number" *ngFor="let day of groupMonthDays[item]">
+                <div [ngClass]="{'selected' : day.selected}" class="day">
+                  {{day.number | addZeroDate}}
+                </div>
+
+                <div class="event_point"></div>
+                <div class="match_point"></div>
+              </div>
             </div>
 
         </div>
